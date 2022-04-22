@@ -4,4 +4,4 @@ var e=arguments[3];function t(e,t){if(!(e instanceof t))throw new TypeError("Can
 },{}],"iiAF":[function(require,module,exports) {
 "use strict";var e=o(require("@vimeo/player"));function o(e){return e&&e.__esModule?e:{default:e}}const l=new e.default("handstick",{id:"vimeo-player",width:640});l.on("play",function(){console.log("played the video!"),console.log(l)});
 },{"@vimeo/player":"zU8P"}]},{},["iiAF"], null)
-//# sourceMappingURL=/goit-js-hw-08.git/02-video.6a340c2f.js.map
+//# sourceMappingURL=/goit-js-hw-08/02-video.6a340c2f.js.map
