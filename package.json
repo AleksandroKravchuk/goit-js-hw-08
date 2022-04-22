@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://github.com/AleksandroKravchuk/goit-js-hw-08.git",
+  "homepage": "https://AleksandroKravchuk/goit-js-hw-08.git",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-08.git/"
@@ -26,6 +26,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "@vimeo/player": "^2.16.4",
     "simplelightbox": "^2.10.3"
   }
 }

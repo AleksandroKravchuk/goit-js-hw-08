@@ -3,8 +3,13 @@ import { galleryItems } from './gallery-items';
 // Change code below this line
 console.log(galleryItems);
 
+
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+
+const imgContainer = document.querySelector('.gallery');
+
+
 
 const cardsMarkup = createImgCards(galleryItems);  
 imgContainer.insertAdjacentHTML('beforeend', cardsMarkup);
@@ -12,45 +17,15 @@ imgContainer.insertAdjacentHTML('beforeend', cardsMarkup);
 function createImgCards(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return `
-  <div class="gallery__item">
-  <a class="gallery__link" href="${original}">
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</div>
+<a class="gallery__item" href="${original}">
+  <img class="gallery__image" src="${preview}" alt="${description}" />
+</a>
     `
     }).join('');
 }
 
 
-imgContainer.addEventListener('click', onContainerClick);
+const gallery = new SimpleLightbox('.gallery a');
 
-let currentImg = '';
-function onContainerClick(event) {
-
-  if (!event.target.classList.contains('gallery__image')) {
-    return;
-  } event.preventDefault();
-  imgContainer.addEventListener('keydown', onImageClose);
-  const size = event.target.dataset.source;
-
-  currentImg = basicLightbox.create(`
-		   <img  src="${size}">
-	`
-  );
-  currentImg.show();
-
-}
- 
-  function onImageClose(event) {
-  
-    if (event.code === 'Escape') {
-      currentImg.close();
-      imgContainer.removeEventListener('keydown', onImageClose); 
-    }
- 
-}
+gallery.options.captionsData = "alt";
+gallery.options.captionDelay = 250;
