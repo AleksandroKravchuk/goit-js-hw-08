@@ -6,7 +6,8 @@
   "homepage": "https://goitacademy.AleksandroKravchuk/goit-js-hw-08",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
+    "builded": "parcel build src/*.html --public-url /goit-js-hw-08/",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
@@ -27,6 +30,7 @@
   },
   "dependencies": {
     "@vimeo/player": "^2.16.4",
+    "caniuse-lite": "^1.0.30001332",
     "simplelightbox": "^2.10.3"
   }
 }
