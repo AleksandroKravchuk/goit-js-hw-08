@@ -1,40 +1,27 @@
 import Player from '@vimeo/player';
 
-const iFreim = document.querySelector("#vimeo-player");
-
-
-
     const iframe = document.querySelector('iframe');
     const player = new Vimeo.Player(iframe);
 
 
 
-    player.on('play',  function() {
-        console.log('played the video!');
-
-
-
-
-
-        
-//      player.getCurrentTime().then(function(seconds) {
-//     console.log(seconds)
-// }).catch(function(error) {
-//     // an error occurred
-// });   
-    });
-
-
 player.on('playing', function (timeupdate) {
-         console.log(timeupdate.seconds);
-          
+         const time = timeupdate.seconds;
+    const currentTime = { 'videoplayer-current-time': `${time}`, }; 
+    console.log(currentTime);
+ localStorage.setItem('currentTime', JSON.stringify(currentTime));  
         });
 
 
+const getTime = localStorage.getItem('currentTime');
 
 
-player.setCurrentTime().then(function(seconds) {
- console.log(seconds);
+
+let newTime =  JSON.parse(getTime);
+newTime = Number(Object.values(newTime));
+
+player.setCurrentTime(newTime).then(function(seconds) {
+
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
@@ -47,6 +34,8 @@ player.setCurrentTime().then(function(seconds) {
             break;
     }
 });
+
+
 
 
 
