@@ -45,4 +45,3 @@ player.setCurrentTime(newTime).then(function(seconds) {
 
 
 
-
