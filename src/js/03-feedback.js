@@ -11,22 +11,25 @@ refs.form.addEventListener('input', throttle(onInput,500));
 
 populateText();
 
-const formData = {
-    email: '',
-    message:'',
+
+let formData = {
+    // name:'alev',
 };  
-  
 function onInput(evt) {
-    // formData = {...getObject};
-    formData[evt.target.name] = evt.target.value;
+formData = { ...formData } ;
+    
 
-
-  localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
+ formData[evt.target.name] = evt.target.value ;
+ console.log(formData)
+   localStorage.setItem("feedback-form-state", JSON.stringify(formData));  
+  
 };
 
-//  const getMessage = localStorage.getItem("feedback-form-state");
-// let getObject = JSON.parse(getMessage);
 
+
+ const getMessage = localStorage.getItem("feedback-form-state");
+const getObject = JSON.parse(getMessage);
+ 
 function populateText(){
     const getMessage = localStorage.getItem("feedback-form-state");
 
