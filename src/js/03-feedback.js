@@ -11,13 +11,21 @@ refs.form.addEventListener('input', throttle(onInput,500));
 
 populateText();
 
-const formData = {};  
+const formData = {
+    email: '',
+    message:'',
+};  
   
 function onInput(evt) {
+    // formData = {...getObject};
     formData[evt.target.name] = evt.target.value;
+
 
   localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
 };
+
+//  const getMessage = localStorage.getItem("feedback-form-state");
+// let getObject = JSON.parse(getMessage);
 
 function populateText(){
     const getMessage = localStorage.getItem("feedback-form-state");
@@ -33,7 +41,10 @@ function populateText(){
 function onFormSubmit(evt) {
     evt.preventDefault();
     const rezult = localStorage.getItem("feedback-form-state");
-    console.log(JSON.parse(rezult) )
-    evt.currentTarget.reset();
+    const rezultParse = JSON.parse(rezult); 
+    if (refs.emailInput.value  === ''|| refs.messageInput.value === '') {
+    return alert ('Заполните все поля');
+    } console.log(rezultParse);
+     evt.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
 };
