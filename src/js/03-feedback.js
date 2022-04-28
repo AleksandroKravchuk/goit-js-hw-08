@@ -11,10 +11,7 @@ refs.form.addEventListener('input', throttle(onInput,500));
 
 populateText();
 
-const formData = {
-    email: '',
-    message:'',
-};  
+const formData = {};  
   
 function onInput(evt) {
     formData[evt.target.name] = evt.target.value;
