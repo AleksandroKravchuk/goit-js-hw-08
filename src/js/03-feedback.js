@@ -16,16 +16,21 @@ let formData = {
     // name:'alev',
 };  
 function onInput(evt) {
-formData = { ...formData } ;
+
     
 
  formData[evt.target.name] = evt.target.value ;
- console.log(formData)
-   localStorage.setItem("feedback-form-state", JSON.stringify(formData));  
+    
+   
+    return formData;
+    // addStorage();
   
 };
+console.log(formData)
 
-
+function addStorage(formData) {
+    localStorage.setItem("feedback-form-state", JSON.stringify(formData));
+}
 
  const getMessage = localStorage.getItem("feedback-form-state");
 const getObject = JSON.parse(getMessage);
