@@ -14,18 +14,16 @@ populateText();
 
 let formData = {};  
 function onInput(evt) {
+    if (getObject) {
     formData = getObject;
-    
+    formData[evt.target.name] = evt.target.value;    
+    localStorage.setItem("feedback-form-state", JSON.stringify(formData));  
+    } else
 
- formData[evt.target.name] = evt.target.value ;
-    
-  
-   localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
-   
-  
+    formData = {};   
+     formData[evt.target.name] = evt.target.value;   
+localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
 };
-
-
 
 
 const getMessage = localStorage.getItem("feedback-form-state");
@@ -50,5 +48,4 @@ function onFormSubmit(evt) {
     } console.log(rezultParse);
      evt.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
-    getObject = formData;
 };
