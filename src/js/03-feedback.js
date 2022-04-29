@@ -12,7 +12,7 @@ refs.form.addEventListener('input', throttle(onInput,500));
 populateText();
 
 
-formData = {};  
+let formData = {};  
 function onInput(evt) {
     if (!getObject) {
     formData[evt.target.name] = evt.target.value;    
