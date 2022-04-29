@@ -12,17 +12,14 @@ refs.form.addEventListener('input', throttle(onInput,500));
 populateText();
 
 
-let formData = {};  
+formData = {};  
 function onInput(evt) {
-    if (getObject) {
+    if (!getObject) {
+    formData[evt.target.name] = evt.target.value;    
+    } else
     formData = getObject;
     formData[evt.target.name] = evt.target.value;    
-    localStorage.setItem("feedback-form-state", JSON.stringify(formData));  
-    } else
-
-    formData = {};   
-     formData[evt.target.name] = evt.target.value;   
-localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
+    localStorage.setItem("feedback-form-state", JSON.stringify(formData));    
 };
 
 
