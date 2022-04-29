@@ -35,8 +35,7 @@ function onFormSubmit(evt) {
     formData.forEach((value, key) => {
         console.log(key, value);
     })
-    //  evt.currentTarget.reset();
-    // localStorage.removeItem("feedback-form-state");
+    
 };
 
 
