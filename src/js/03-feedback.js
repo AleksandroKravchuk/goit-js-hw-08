@@ -12,7 +12,9 @@ refs.form.addEventListener('input', throttle(onInput,500));
 populateText();
 
 
-let formData = {};  
+let formData = {
+    email: "",
+    message:"",};  
 function onInput(evt) {
     if (!getObject) {
     formData[evt.target.name] = evt.target.value;    
@@ -24,7 +26,7 @@ function onInput(evt) {
 
 
 const getMessage = localStorage.getItem("feedback-form-state");
-const getObject = JSON.parse(getMessage);
+let getObject = JSON.parse(getMessage);
  
 function populateText(){
     const getMessage = localStorage.getItem("feedback-form-state");
@@ -45,4 +47,9 @@ function onFormSubmit(evt) {
     } console.log(rezultParse);
      evt.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
+    getObject = {
+        email: "",
+        message:"",
+    };
+
 };
