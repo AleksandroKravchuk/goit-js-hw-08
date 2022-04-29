@@ -14,13 +14,13 @@ populateText();
 
 let formData = {};  
 function onInput(evt) {
-    
+    formData = getObject;
     
 
  formData[evt.target.name] = evt.target.value ;
     
   
-//    localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
+   localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
    
   
 };
@@ -28,14 +28,14 @@ function onInput(evt) {
 
 
 
-
- 
+const getMessage = localStorage.getItem("feedback-form-state");
+const getObject = JSON.parse(getMessage);
  
 function populateText(){
     const getMessage = localStorage.getItem("feedback-form-state");
 
     if (getMessage) {
-        // const getObject = JSON.parse(getMessage);
+        const getObject = JSON.parse(getMessage);
         refs.emailInput.value = getObject.email; 
         refs.messageInput.value = getObject.message;
     }
@@ -50,5 +50,5 @@ function onFormSubmit(evt) {
     } console.log(rezultParse);
      evt.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
-   
+    getObject = formData;
 };
