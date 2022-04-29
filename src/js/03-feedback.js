@@ -34,7 +34,7 @@ function onFormSubmit(evt) {
     const formData = new FormData(refs.form);
     formData.forEach((value, key) => {
         console.log(key, value);
-    })
+    });
     
 };
 
