@@ -12,35 +12,30 @@ refs.form.addEventListener('input', throttle(onInput,500));
 populateText();
 
 
-let formData = {
-    // name:'alev',
-};  
+let formData = {};  
 function onInput(evt) {
-
+    
     
 
  formData[evt.target.name] = evt.target.value ;
     
+  
+//    localStorage.setItem("feedback-form-state", JSON.stringify(formData)); 
    
-    return formData;
-    // addStorage();
   
 };
-console.log(formData)
 
-function addStorage(formData) {
-    localStorage.setItem("feedback-form-state", JSON.stringify(formData));
-}
 
- const getMessage = localStorage.getItem("feedback-form-state");
-const getObject = JSON.parse(getMessage);
+
+
+
+ 
  
 function populateText(){
     const getMessage = localStorage.getItem("feedback-form-state");
 
     if (getMessage) {
-        const getObject = JSON.parse(getMessage);
-    
+        // const getObject = JSON.parse(getMessage);
         refs.emailInput.value = getObject.email; 
         refs.messageInput.value = getObject.message;
     }
@@ -55,4 +50,5 @@ function onFormSubmit(evt) {
     } console.log(rezultParse);
      evt.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
+   
 };
