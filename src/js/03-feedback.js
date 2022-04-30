@@ -5,21 +5,18 @@ const refs = {
 }
 
 refs.form.addEventListener('submit', onFormSubmit);
-refs.form.addEventListener('input', throttle(onInput,500));
+refs.form.addEventListener('input', throttle(onInput, 500));
 
 populateText();
- 
+
 function onInput(evt) {
     const { name, value } = evt.target;
-    console.log( name, value  )
-    
-    const formData = JSON.parse(localStorage.getItem("feedback-form-state")) ||{} ;
-    formData[name] = value;    
-   
-    localStorage.setItem("feedback-form-state", JSON.stringify(formData));    
+    const formData = JSON.parse(localStorage.getItem("feedback-form-state")) || {};
+    formData[name] = value;
+    localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 };
 
-function populateText(){
+function populateText() {
     const getMessage = localStorage.getItem("feedback-form-state");
 
     if (getMessage) {
@@ -38,7 +35,7 @@ function onFormSubmit(evt) {
     formData.forEach((value, key) => {
         console.log(key, value);
     });
-      evt.currentTarget.reset();
+    evt.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
 };
 
